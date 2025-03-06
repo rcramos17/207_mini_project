@@ -39,16 +39,30 @@
             document.querySelector('nav').classList.toggle('show');
         }
         
-        function sendEmail(event) {
+        /*function sendEmail(event) {
             event.preventDefault();
             let email = document.querySelector(".contact-form input[type='email']").value;
             let message = document.querySelector(".contact-form textarea").value;
             window.location.href = `mailto:${email}?subject=Contact Form Submission&body=${encodeURIComponent(message)}`;
+        }*/
+
+        function sendEmail(event) {
+            event.preventDefault();
+            emailjs.init("service_n7y1vm6");
+            emailjs.send("service_n7y1vm6", "RCRGmail", {
+                from_name: document.getElementById("name").value,
+                from_email: document.getElementById("email").value,
+                message: document.getElementById("message").value
+            }).then(function(response) {
+                alert("Email sent successfully!");
+            }, function(error) {
+                alert("Failed to send email.");
+            });
         }
 
         document.addEventListener("DOMContentLoaded", function() {
             showSection('home');
-            document.querySelector(".contact-form").addEventListener("submit", sendEmail);
+            /*document.querySelector(".contact-form").addEventListener("submit", sendEmail);*/
         });
     </script>
 </head>
@@ -98,10 +112,11 @@
     <div class="section" id="contact">
         <div class="content">
             <h2>Contact Me</h2>
-            <form class="contact-form">
-                <input type="email" placeholder="Your Email" required>
-                <textarea placeholder="Your Message" rows="4" required></textarea>
-                <button type="submit">Send</button>
+            <form class="contact-form" onsubmit="sendEmail(event)">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+                <button type="submit">Send Email</button>
             </form>
             <br>
             <div class="contact-icons">
