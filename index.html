@@ -10,6 +10,7 @@
     <link type="text/css" rel="stylesheet" href="assets/css/master.css" />
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     
+
     <script>
         function showSection(sectionId) {
             document.querySelectorAll('.section').forEach(section => {
@@ -41,13 +42,7 @@
             document.querySelector('nav').classList.toggle('show');
         }
         
-        /*function sendEmail(event) {
-            event.preventDefault();
-            let email = document.querySelector(".contact-form input[type='email']").value;
-            let message = document.querySelector(".contact-form textarea").value;
-            window.location.href = `mailto:${email}?subject=Contact Form Submission&body=${encodeURIComponent(message)}`;
-        }*/
-
+        /* Send Email Function */
         function sendEmail(event) {
             event.preventDefault();
             emailjs.init("GFA05yBLHYgFDYDpj");
@@ -56,34 +51,17 @@
                 from_email: document.getElementById("email").value,
                 message: document.getElementById("message").value
             }).then(function(response) {
-                alert("Email sent successfully!");
+                alert("Your mail is sent! Thank you for getting touch with me.");
+                document.getElementById("name").value = "";
+                document.getElementById("email").value = "";
+                document.getElementById("message").value = "";
             }, function(error) {
                 alert("Failed to send email.");
             });
         }
-            /*
-        function sendEmail(event) {
-            var data = {
-                service_id: 'service_n7y1vm6',
-                template_id: 'template_84ge62q',
-                user_id: 'rcramos17@up.edu.ph'
-                }
-              
-                $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
-                    type: 'POST',
-                    data: JSON.stringify(data),
-                    contentType: 'application/json'
-                }).done(function() {
-                    alert('Your mail is sent!');
-                }).fail(function(error) {
-                    alert('Oops... ' + JSON.stringify(error));
-                });
-        }
-        */
-
+       
         document.addEventListener("DOMContentLoaded", function() {
             showSection('home');
-            /*document.querySelector(".contact-form").addEventListener("submit", sendEmail);*/
         });
     </script>
 </head>
@@ -132,6 +110,7 @@
     </div>
     <div class="section" id="contact">
         <div class="content">
+            
             <h2>Contact Me</h2>
             <form class="contact-form" onsubmit="sendEmail(event)">
                 <input type="text" id="name" placeholder="Your Name" required>
