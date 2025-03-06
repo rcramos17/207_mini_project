@@ -50,7 +50,7 @@
 
         function sendEmail(event) {
             event.preventDefault();
-            emailjs.init("rcramos17@up.edu.ph");
+            emailjs.init("GFA05yBLHYgFDYDpj");
             emailjs.send("service_n7y1vm6", "template_84ge62q", {
                 from_name: document.getElementById("name").value,
                 from_email: document.getElementById("email").value,
@@ -61,6 +61,25 @@
                 alert("Failed to send email.");
             });
         }
+            /*
+        function sendEmail(event) {
+            var data = {
+                service_id: 'service_n7y1vm6',
+                template_id: 'template_84ge62q',
+                user_id: 'rcramos17@up.edu.ph'
+                }
+              
+                $.ajax('https://api.emailjs.com/api/v1.0/email/send', {
+                    type: 'POST',
+                    data: JSON.stringify(data),
+                    contentType: 'application/json'
+                }).done(function() {
+                    alert('Your mail is sent!');
+                }).fail(function(error) {
+                    alert('Oops... ' + JSON.stringify(error));
+                });
+        }
+        */
 
         document.addEventListener("DOMContentLoaded", function() {
             showSection('home');
