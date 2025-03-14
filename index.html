@@ -40,8 +40,12 @@
 
         // Show and hide fun facts
         function showFunFacts() {
-                let paragraph = document.getElementById("hiddenParagraph");
-                paragraph.style.display = (paragraph.style.display === "none") ? "block" : "none";
+            let paragraph = document.getElementById("hiddenParagraph");
+            if (window.getComputedStyle(paragraph).display === "none") {
+                paragraph.style.display = "block";
+            } else {
+                paragraph.style.display = "none";
+            }
         }
     </script>
 
