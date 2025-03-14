@@ -18,14 +18,15 @@
             height: 100vh;
             padding-top: 60px;
         }
-            .transition-container {
-        font-size: 24px;
+
+    .transition-container {
+        font-size: 48px;
         color: white;
         text-align: center;
         margin-bottom: 20px;
         height: 50px;
-        overflow: hidden;
-        position: relative;
+        /*overflow: hidden;
+        position: relative;*/
         width: 100%;
     }
 
@@ -38,11 +39,12 @@
     }
 
     @keyframes fadeInOut {
-        0% { opacity: 0; transform: translateY(10px); }
-        10% { opacity: 1; transform: translateY(0); }
-        30% { opacity: 1; transform: translateY(0); }
-        40% { opacity: 0; transform: translateY(-10px); }
-        100% { opacity: 0; transform: translateY(-10px); }
+        0% { opacity: 0;  }
+        10% { opacity: 1; }
+        30% { opacity: 0;  }
+        40% { opacity: 0;  }
+        80% { opacity: 0;  }
+        100% { opacity: 0; }
     }
 
     .transition-text:nth-child(1) { animation-delay: 0s; }

@@ -1,151 +1,115 @@
-* { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Josefin Slab', serif; }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Josefin Slab', serif;
+}
+
 body {
-    background: #c8dcc2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    padding-top: 60px;
+    text-align: center;
+    background-color: #c8dcc2;
 }
+
+h1 {
+    color: #FFFFFF;
+    text-shadow: 2px 2px #6d8627;
+}
+
+h2 {
+    color: #111111;
+    font-family: 'Josefin Slab', serif !important;
+}
+
+div.box {
+    padding: 5px;
+    border: 1px solid #c8dcc2;
+    margin: 10px 200px 75px 200px;
+    background-color: #FFFFFF;
+    box-shadow: 5px 10px 8px #a8c29f;
+}
+
 nav {
-    background: #333;
-    padding: 15px;
-    text-align: center;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    z-index: 1000;
+    background-color: #111111;
+    font-weight: bold;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    font-size: 20px;
 }
-nav a {
-    color: white;
+
+nav ul li {
+    display: inline;
+    padding-right: 50px;
+    padding-left: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+
+}
+
+nav ul li:last-child {
+    border-right: none;
+}
+
+nav ul li a {
     text-decoration: none;
-    margin: 5px 10px;
-    font-size: 18px;
-    cursor: pointer;
-    padding: 10px;
-    border-radius: 5px;
+    color: #FFFFFF;
 }
-.active-link {
-    background: #555;
-}
-.section {
-    padding: 50px;
-    max-width: 800px;
-    text-align: center;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-.about-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.about-container img {
-    width: 200px;
-    height: auto;
-    margin-right: 20px;
+
+li.selected {
+    background-color: #94CB00;
     border-radius: 10px;
 }
-.content {
-    max-width: 500px;
+
+li.selected a {
+    color: #FFFFFF;
 }
-.menu-toggle {
-    display: none;
-    background: #333;
-    color: white;
-    padding: 10px;
-    font-size: 18px;
-    border: none;
-    cursor: pointer;
-    position: fixed;
-    top: 10px;
-    left: 10px;
-    z-index: 1100;
-}
-.contact-form input, .contact-form textarea {
-    width: 100%;
-    padding: 12px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    font-size: 16px;
-}
-.contact-form button {
-    width: 100%;
-    padding: 12px;
-    background: #333;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-}
-.contact-form button:hover {
-    background: #555;
-}
-.contact-icons a {
-    margin: 10px;
-    font-size: 24px;
-    color: #333;
+
+li.unselected {
     text-decoration: none;
+    color: #FFFFFF;
 }
-.hobbies-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+
+a:hover {
+    color: #FFFFFF;
+    text-shadow: 1px 1px #7d8271;
 }
-.hobbies-video {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
-}
-.hobbies-text {
-    position: relative;
-    color: white;
-    background: rgba(0, 0, 0, 0.5);
-    padding: 20px;
+
+/* Effect when hover in nav bar*/
+nav ul li:hover {
+    color: #FFFFFF;
+    background-color: #94CB00;
     border-radius: 10px;
-    max-width: 1000px;
-    text-align: center;
 }
-.home-container {
-    position:relative;
-    max-width: 100%;
+
+/* Hide all sections initially */
+.content-section {
+    display: none;
 }
-.home-video-container video {
-    position:relative;
-    width: 100%;
-    height: 100%;
-    z-index:0;
+
+/* Show the active section */
+.active {
+    display: block;
 }
-.home-text-overlay {
-    position:absolute;
-    top:0;
-    left:0;
-    z-index:1;
+
+/* Hide all sections initially */
+.content-section {
+    display: none;
 }
+
+/* Show the active section */
+.active {
+    display: block;
+}
+
+
 .transition-container {
-    font-size: 24px;
-    color: #333;
+    font-size: 48px;
+    color: white;
     text-align: center;
+    margin-top: 20px;
     margin-bottom: 20px;
-    height: 50px;
-    overflow: hidden;
-    position: relative;
+    height: 40px;
+    /*overflow: hidden;
+    position: relative;*/
     width: 100%;
 }
 
@@ -158,47 +122,169 @@ nav a {
 }
 
 @keyframes fadeInOut {
-    0% { opacity: 0; transform: translateY(10px); }
-    10% { opacity: 1; transform: translateY(0); }
-    30% { opacity: 1; transform: translateY(0); }
-    40% { opacity: 0; transform: translateY(-10px); }
-    100% { opacity: 0; transform: translateY(-10px); }
+    0% {
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    30% {
+        opacity: 0;
+    }
+
+    40% {
+        opacity: 0;
+    }
+
+    80% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }
 
-.transition-text:nth-child(1) { animation-delay: 0s; }
-.transition-text:nth-child(2) { animation-delay: 5s; }
-.transition-text:nth-child(3) { animation-delay: 10s; }
+.transition-text:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.transition-text:nth-child(2) {
+    animation-delay: 5s;
+}
+
+.transition-text:nth-child(3) {
+    animation-delay: 10s;
+}
+
+.transition-text:nth-child(4) {
+    animation-delay: 15s;
+}
+
+.transition-text:nth-child(5) {
+    animation-delay: 20s;
+}
+
+/* Default */
+.custom-col {
+    width: 50%;
+    /* Equivalent to s6 (6/12 = 50%) */
+    text-align: center;
+    /* w3-center */
+    padding: 8px;
+    /* W3.CSS default padding */
+    box-sizing: border-box;
+    /* Ensures padding doesn’t affect width */
+}
 
 
-@media (max-width: 768px) {
-    body {
-        height: auto;
-        padding-top: 100px;
-    }
-    .section {
-        padding: 20px;
-        flex-direction: column;
-        width: 90%;
-    }
-    nav {
-        flex-direction: column;
-        align-items: center;
-        display: none;
-    }
-    nav.show {
-        display: flex;
-    }
-    nav a {
-        display: block;
+img.img-fit {
+    max-width: 100%;
+    height: 50vh;
+    display: block;
+    margin: 5px 5px 5px 5px;
+
+}
+
+div.contact-form-container {
+    padding: 5px;
+
+    background-color: #FFFFFF;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 12px;
+    background: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.contact-form button:hover {
+    background: #555;
+}
+
+.contact-icons a {
+    margin: 10px;
+    font-size: 24px;
+    color: #333;
+    text-decoration: none;
+}
+
+
+/* responsive */
+@media (min-width: 375px) and (max-width: 576px) {
+    .custom-col {
         width: 100%;
-        text-align: center;
-        padding: 12px;
+        /* Keep it 50% for small screens */
     }
-    .menu-toggle {
-        display: block;
+
+    .transition-text {
+        font-size: 15px;
+        height: 20px;
+        margin-bottom: 5px;
     }
-    
+
+    div.box {
+        padding: 5px;
+        border: 1px solid #c8dcc2;
+        margin: 10px 200px 75px 200px;
+        background-color: #FFFFFF;
+        box-shadow: 5px 10px 8px #a8c29f;
+    }
 }
 
+@media (min-width: 576px) and (max-width: 768px) {
+    .custom-col {
+        width: 80%;
+        /* Keep it 50% for small screens */
+    }
 
+    .transition-text {
+        font-size: 25px;
+        height: 25px;
+        margin: 10px 0px 75px 0px;
+    }
+}
 
+@media (min-width: 768px) and (max-width: 992px) {
+    .custom-col {
+        width: 70%;
+        /* Keep it 50% for small screens */
+    }
+
+    .transition-text {
+        font-size: 25px;
+        height: 30px;
+        margin: 10px 0px 75px 0px;
+    }
+}
+
+@media (min-width: 992px) {
+    .custom-col {
+        width: 50%;
+        /* Keep it 50% for small screens */
+    }
+
+    .transition-text {
+        font-size: 35px;
+        height: 40px;
+        margin-bottom: 15px;
+    }
+
+}

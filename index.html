@@ -1,175 +1,171 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
+    <title>Outline</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Profile</title>
+    <!--CSS Link local-->
+    <link type="text/css" rel="stylesheet" href="css/styles.css" />
+    <!--W3.CSS Link-->
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
     <!--Font Reference-->
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-    <!--CSS Reference-->
-    <link type="text/css" rel="stylesheet" href="assets/css/master.css" />
-
-    <!--Email Reference-->
-    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
+    <!--JavaScript-->
     <script>
-        /*This function used to hide pages and higthlight the page selected*/
-        function showSection(sectionId) {
-            document.querySelectorAll('.section').forEach(section => {
-                section.style.opacity = "0";
-                setTimeout(() => {
-                    section.style.display = "none";
-                }, 200);
+        function selectedProp(sectionId, clickedElement) {
+
+            // Remove the highlight or background of navigation button
+            document.querySelectorAll("nav ul li").forEach(li => {
+                li.classList.remove("selected");
+                li.classList.add("unselected");
             });
 
-            setTimeout(() => {
-                let newSection = document.getElementById(sectionId);
-                newSection.style.display = "flex";
-                setTimeout(() => {
-                    newSection.style.opacity = "1";
-                }, 50);
-            }, 200);
+            // Highlight the selected button or navigation
+            clickedElement.classList.add("selected");
+            clickedElement.classList.remove("unselected");
 
-            document.querySelectorAll('nav a').forEach(link => {
-                link.classList.remove('active-link');
+            // Show the selected section
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
             });
-            document.querySelector(`nav a[onclick="showSection('${sectionId}')"]`).classList.add('active-link');
 
-            if (window.innerWidth <= 768) {
-                document.querySelector('nav').classList.remove('show');
-            }
+            // Show the active section; "About me" is a default page when refresh or load
+            document.getElementById(sectionId).classList.add('active');
+
         }
-
-        function toggleMenu() {
-            document.querySelector('nav').classList.toggle('show');
-        }
-
-        function sendEmail(event) {
-            event.preventDefault();
-            emailjs.init("GFA05yBLHYgFDYDpj");
-            emailjs.send("service_n7y1vm6", "template_84ge62q", {
-                from_name: document.getElementById("name").value,
-                from_email: document.getElementById("email").value,
-                message: document.getElementById("message").value
-            }).then(function (response) {
-                alert("Your mail is sent! Thank you for getting touch with me.");
-                document.getElementById("name").value = "";
-                document.getElementById("email").value = "";
-                document.getElementById("message").value = "";
-            }, function (error) {
-                alert("Failed to send email.");
-            });
-        }
-
-        document.addEventListener("DOMContentLoaded", function () {
-            showSection('home');
-        });
     </script>
+
 </head>
 
 <body>
-    <button class="menu-toggle" onclick="toggleMenu()">☰ Menu</button>
-    <nav>
-        <a onclick="showSection('home')" class="active-link"><i class="fas fa-home"></i> Home</a>
-        <a onclick="showSection('about')"><i class="fas fa-user"></i> About Me</a>
-        <a onclick="showSection('hobbies')"><i class="fas fa-heart"></i> My Hobbies</a>
-        <a onclick="showSection('contact')"><i class="fas fa-envelope"></i> Contact Me</a>
-    </nav>
-    <div class="section" id="home">
 
-        
-            <div class="home-container">
-                <div class="transition-container">
-                    <br>
-                  
-                    <div class="transition-text"><strong>Technology, efficiency, and continuous improvement</strong></div>
-                    <div class="transition-text"><strong>Cooking, music, movies, and exploring history and science</strong></div>
-                    <div class="transition-text"><strong>Good food, good stories, and great company</strong></div>
+    <header>
+        <!--<h2 class="effect"> <strong>IT Project Manager | Business Process Automation | Technology-Driven
+                Solutions</strong></h2>-->
+
+
+    <div class="transition-container">
+        <div class="transition-text">IT Professional</div>
+        <div class="transition-text">Digital Transformation</div>
+        <div class="transition-text">Technology, efficiency, and continuous improvement</div>
+        <div class="transition-text">Cooking, music, movies, and exploring history and science</div>
+        <div class="transition-text">Good food, good stories, and great company</div>
+    </div>
+    </header>
+
+    <!--Nav Bar-->
+    <div id="nav-bar">
+        <nav>
+            <ul>
+                <li id="list-about-me" class="selected" onclick="selectedProp('about-me-details',this)"><a
+                        href="#about-me">About
+                        Me</a></li>
+                <li id="list-hobbies" onclick="selectedProp('hobbies-details', this)"><a href="#hobbies">Hobbies and Interest</a></li>
+                <li id="list-contact" onclick="selectedProp('contact-details',this)"><a href="#contact">Contact
+                        Me</a></li>
+
+            </ul>
+            </ul>
+        </nav>
+    </div>
+
+     <!-- Content inside the box -->
+    <div class="box">    
+        <!--About me-->
+        <div id="about-me-details" class="content-section active">
+            <div class="w3-row">
+                <div class="w3-col s4 w3-center">
+                    <img class="img-fit" src="images/my-picture.jpg" alt="Profession">
                 </div>
+                <div class="w3-col s8 w3-center">
+                    <div id="pofessional-summary" class="content-sub-section">
+                        <h2><strong>Professional Summary</strong></h2>
+                        <p>Experienced IT professional with 12+ years in application development, project management,
+                            and business process
+                            automation. Skilled in driving digital transformation across supply chain, real estate,
+                            leasing, and financing.
+                        </p>
+                    </div>
+                    <div id="career-journey" class="content-sub-section">
+                        <h2><strong>Career Journey</strong></h2>
+                        <p>I began my career as a faculty, then become a lead application developer, where I learned the 
+                            supply chain practices. After that, I served as IT Senior Lead for 11 years, 
+                            managing teams focused on application and report development for real estate.
+                            Currently, I work as an IT project manager, handling the real estate sales journey system.
+                        </p>
+                    </div>
 
-            <div class="home-text-overlay">
+
+                </div>
+            </div>
+        </div>
+
+        <!--Hobbies & Interest-->
+        <div id="hobbies-details" class="content-section">
+            <div class="w3-row">
                 
+                <div class="w3-col s8 w3-center">
+                    <div id="pofessional-summary" class="content-sub-section">
+                        <br>
+                        <p>Outside of work, I wouldn’t have described myself as a sports person, but I enjoy the
+                            excitement
+                            and energy that
+                            a good game brings, particularly when good food is involved! But speaking of food, I love to
+                            cook—anything from
+                            experimenting with something new to honing a home-cooked classic. But as much as I love
+                            cooking, I love
+                            eating
+                            even more — sampling new flavors, digging into comfort food. </p> <br>
+                        <p>I absolutely love music too. And while I wouldn’t yet describe myself as a singer, I’d love
+                            to nurture my
+                            voice
+                            and gain the confidence to perform. In my free time, I enjoy watching movies and following
+                            current
+                            events and
+                            documentaries that provide new perspectives on the world. History, science, true stories — I
+                            feel like
+                            if I
+                            learn something, it’s always time spent well.</p> <br>
+                        <p>Ultimately, I most enjoy the simple pleasures in life—shared good food, good stories, and
+                            hoping to hit
+                            the right
+                            note someday with my family and friends.</p>
+                    </div>
+                </div>
+                <div class="w3-col s4  w3-center">
+                    <img class="img-fit" src="images/large-diaphragm-condenser-microphone-with-musician-holding-electric-guitar-backgroun.jpg" alt="Profession">
+                </div>
+               
             </div>
-            <div class="home-video-container">
-                <video autoplay loop muted>
-                    <source src="assets/videos/tea-cup.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
-            </div>
-           
-        </div>
-    </div>
-    <div class="section" id="about">
-        <div class="about-container">
-            <img src="assets/images/my-picture.jpg" alt="Profile Picture">
-            <div class="content">
-                <h2>Professional Summary</h2> <br>
-                <p>Experienced IT professional with 12+ years in application development, project management, and
-                    business process
-                    automation. Skilled in driving digital transformation across supply chain, real estate, leasing, and
-                    financing.
-                </p> <br>
-                <h2>Career Journey</h2> <br>
-                <p>I began my career as a Lead Application Developer at Intercoastal International Technologies Inc.,
-                    where I
-                    developed an inventory system used across multiple teams. I then transitioned to Project Manager &
-                    Software
-                    Developer at FlexAir Philippines, leading the automation of supply chain processes. After that, I
-                    served as an
-                    IT Senior Lead (Assistant Manager) for 11 years, managing teams focused on application and report
-                    development.
-                    Currently, I work as an IT Project Manager, ensuring system enhancements, support, and continuous
-                    improvement.
-                </p>
-            </div>
-        </div>
-    </div>
-    <div class="section" id="hobbies">
-        <div class="hobbies-container">
-            <div class="hobbies-text">
-                <p>Outside of work, I wouldn’t have described myself as a sports person, but I enjoy the excitement
-                    and energy that
-                    a good game brings, particularly when good food is involved! But speaking of food, I love to
-                    cook—anything from
-                    experimenting with something new to honing a home-cooked classic. But as much as I love cooking, I
-                    love eating
-                    even more — sampling new flavors, digging into comfort food. </p> <br>
-                <p>I absolutely love music too. And while I wouldn’t yet describe myself as a singer, I’d love to
-                    nurture my voice
-                    and gain the confidence to perform. In my free time, I enjoy watching movies and following current
-                    events and
-                    documentaries that provide new perspectives on the world. History, science, true stories — I feel
-                    like if I
-                    learn something, it’s always time spent well.</p> <br>
-                <p>Ultimately, I most enjoy the simple pleasures in life—shared good food, good stories, and hoping to
-                    hit the right
-                    note someday with my family and friends.</p>
-            </div>
+
         </div>
 
-    </div>
-    <div class="section" id="contact">
-        <div class="content">
-
+        <!--Contacts-->
+        <div id="contact-details" class="content-section">
             <h2>Contact Me</h2>
-            <form class="contact-form" onsubmit="sendEmail(event)">
-                <input type="text" id="name" placeholder="Your Name" required>
-                <input type="email" id="email" placeholder="Your Email" required>
-                <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
-                <button type="submit">Send Email</button>
-            </form>
-            <br>
-            <div class="contact-icons">
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="https://www.linkedin.com/in/reynante-ramos-35950b17" target="_blank"><i
-                        class="fab fa-linkedin"></i></a>
+            <div class="contact-form-container">
+                <form class="contact-form" onsubmit="sendEmail(event)">
+                    <input type="text" id="name" placeholder="Your Name" required>
+                    <input type="email" id="email" placeholder="Your Email" required>
+                    <textarea id="message" placeholder="Your Message" rows="4" required></textarea>
+                    <button type="submit">Send Email</button>
+                </form>
+                <br>
+                <div class="contact-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/reynante-ramos-35950b17" target="_blank"><i
+                            class="fab fa-linkedin"></i></a>
+                </div>
             </div>
         </div>
     </div>
+
+    <footer>
+        2025 - CMSC207 - Created by R&R
+    </footer>
 </body>
 
 </html>
