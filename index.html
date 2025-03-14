@@ -4,6 +4,7 @@
 <head>
     <title>Outline</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!--CSS Link local-->
     <link type="text/css" rel="stylesheet" href="assets/css/master.css" />
     <!--W3.CSS Link-->
@@ -36,34 +37,42 @@
             document.getElementById(sectionId).classList.add('active');
 
         }
+
+        // Show and hide fun facts
+        function showFunFacts() {
+                let paragraph = document.getElementById("hiddenParagraph");
+                paragraph.style.display = (paragraph.style.display === "none") ? "block" : "none";
+        }
     </script>
 
 </head>
 
 <body>
-
+    <!-- Header with animation-->
     <header>
-        <!--<h2 class="effect"> <strong>IT Project Manager | Business Process Automation | Technology-Driven
-                Solutions</strong></h2>-->
 
-
-    <div class="transition-container">
-        <div class="transition-text">IT Professional</div>
-        <div class="transition-text">Digital Transformation</div>
-        <div class="transition-text">Technology, efficiency, and continuous improvement</div>
-        <div class="transition-text">Cooking, music, movies, and exploring history and science</div>
-        <div class="transition-text">Good food, good stories, and great company</div>
-    </div>
+        <div class="transition-container">
+            <div class="transition-text"><strong>IT Professional</strong></div>
+            <div class="transition-text"><strong>Digital Transformation</strong></div>
+            <div class="transition-text"><strong>Technology, efficiency, and continuous improvement</strong></div>
+            <div class="transition-text"><strong>Cooking, music, movies, and exploring history and science</strong>
+            </div>
+            <div class="transition-text"><strong>Good food, good stories, and great company</strong></div>
+        </div>
+        
+            <div><strong>Reynante C. Ramos </strong></div>
+            <div>Master of Information System</div>
     </header>
 
-    <!--Nav Bar-->
+    <!-- Nav Bar-->
     <div id="nav-bar">
         <nav>
             <ul>
                 <li id="list-about-me" class="selected" onclick="selectedProp('about-me-details',this)"><a
                         href="#about-me">About
                         Me</a></li>
-                <li id="list-hobbies" onclick="selectedProp('hobbies-details', this)"><a href="#hobbies">Hobbies and Interest</a></li>
+                <li id="list-hobbies" onclick="selectedProp('hobbies-details', this)"><a href="#hobbies">Hobbies and
+                        Interest</a></li>
                 <li id="list-contact" onclick="selectedProp('contact-details',this)"><a href="#contact">Contact
                         Me</a></li>
 
@@ -72,8 +81,8 @@
         </nav>
     </div>
 
-     <!-- Content inside the box -->
-    <div class="box">    
+    <!-- Content inside the box -->
+    <div class="box">
         <!--About me-->
         <div id="about-me-details" class="content-section active">
             <div class="w3-row">
@@ -91,8 +100,8 @@
                     </div>
                     <div id="career-journey" class="content-sub-section">
                         <h2><strong>Career Journey</strong></h2>
-                        <p>I began my career as a faculty, then become a lead application developer, where I learned the 
-                            supply chain practices. After that, I served as IT Senior Lead for 11 years, 
+                        <p>I began my career as a faculty, then become a lead application developer, where I learned the
+                            supply chain practices. After that, I served as IT Senior Lead for 11 years,
                             managing teams focused on application and report development for real estate.
                             Currently, I work as an IT project manager, handling the real estate sales journey system.
                         </p>
@@ -106,7 +115,6 @@
         <!--Hobbies & Interest-->
         <div id="hobbies-details" class="content-section">
             <div class="w3-row">
-                
                 <div class="w3-col s8 w3-center">
                     <div id="pofessional-summary" class="content-sub-section">
                         <br>
@@ -133,12 +141,20 @@
                             hoping to hit
                             the right
                             note someday with my family and friends.</p>
+
+                        <br>
+                        <button onclick="showFunFacts()">Click Me</button>
+                        <p id="hiddenParagraph">This is a hidden paragraph that appears when you click the button.</p>
+
+
                     </div>
                 </div>
                 <div class="w3-col s4  w3-center">
-                    <img class="img-fit" src="assets/images/large-diaphragm-condenser-microphone-with-musician-holding-electric-guitar-backgroun.jpg" alt="Profession">
+                    <img class="img-fit"
+                        src="assets/images/large-diaphragm-condenser-microphone-with-musician-holding-electric-guitar-backgroun.jpg"
+                        alt="Profession">
                 </div>
-               
+
             </div>
 
         </div>
@@ -164,7 +180,7 @@
     </div>
 
     <footer>
-        2025 - CMSC207 - Created by R&R
+        <div>CMSC207 Web Programming and Developement</div>
     </footer>
 </body>
 

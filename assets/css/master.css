@@ -8,6 +8,7 @@
 body {
     text-align: center;
     background-color: #c8dcc2;
+   
 }
 
 h1 {
@@ -103,7 +104,7 @@ nav ul li:hover {
 
 .transition-container {
     font-size: 48px;
-    color: white;
+    color: #94CB00;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -183,14 +184,11 @@ nav ul li:hover {
 img.img-fit {
     max-width: 100%;
     height: 50vh;
-    display: block;
     margin: 5px 5px 5px 5px;
-
 }
 
 div.contact-form-container {
     padding: 5px;
-
     background-color: #FFFFFF;
 }
 
@@ -226,6 +224,11 @@ div.contact-form-container {
     text-decoration: none;
 }
 
+#hiddenParagraph {
+    display: none; /* Initially hidden */
+    margin-bottom: 20px; 
+}
+
 
 /* responsive */
 @media (min-width: 375px) and (max-width: 576px) {
@@ -243,7 +246,7 @@ div.contact-form-container {
     div.box {
         padding: 5px;
         border: 1px solid #c8dcc2;
-        margin: 10px 200px 75px 200px;
+        margin: 10px 10px 75px 10px;
         background-color: #FFFFFF;
         box-shadow: 5px 10px 8px #a8c29f;
     }
