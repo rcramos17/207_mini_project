@@ -14,6 +14,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Slab&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <!--JavaScript-->
     <script>
         function selectedProp(sectionId, clickedElement) {
@@ -48,6 +50,23 @@
             }
         }
 
+         /* Send Email Function */
+         function sendEmail(event) {
+             event.preventDefault();
+             emailjs.init("GFA05yBLHYgFDYDpj");
+             emailjs.send("service_n7y1vm6", "template_84ge62q", {
+                 from_name: document.getElementById("name").value,
+                 from_email: document.getElementById("email").value,
+                 message: document.getElementById("message").value
+             }).then(function (response) {
+                 alert("Your mail is sent! Thank you for getting touch with me.");
+                 document.getElementById("name").value = "";
+                 document.getElementById("email").value = "";
+                 document.getElementById("message").value = "";
+             }, function (error) {
+                 alert("Failed to send email.");
+             });
+         }
     </script>
 
 </head>
