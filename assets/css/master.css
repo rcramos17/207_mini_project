@@ -101,7 +101,7 @@ nav ul li:hover {
     display: block;
 }
 
-
+/* Header animation */
 .transition-container {
     font-size: 48px;
     color: #94CB00;
@@ -109,8 +109,6 @@ nav ul li:hover {
     margin-top: 20px;
     margin-bottom: 20px;
     height: 40px;
-    /*overflow: hidden;
-    position: relative;*/
     width: 100%;
 }
 
@@ -171,13 +169,11 @@ nav ul li:hover {
 /* Default */
 .custom-col {
     width: 50%;
-    /* Equivalent to s6 (6/12 = 50%) */
     text-align: center;
     /* w3-center */
     padding: 8px;
     /* W3.CSS default padding */
     box-sizing: border-box;
-    /* Ensures padding doesn’t affect width */
 }
 
 
@@ -195,11 +191,8 @@ img.img-fit {
 
 .image-container img {
     width: 200px;
-    /* Set image size */
     height: auto;
     transition: opacity 0.3s ease;
-    /* Smooth transition */
-    
 }
 
 /* Show default image by default */
@@ -258,16 +251,13 @@ div.contact-form-container {
 
 #hiddenParagraph {
     display: none;
-    /* Initially hidden */
-    /*  margin-bottom: 20px; */
 }
 
 
-/* responsive */
+/* Code for responsiveness */
 @media (min-width: 375px) and (max-width: 576px) {
     .custom-col {
         width: 100%;
-        /* Keep it 50% for small screens */
     }
 
     .transition-text {
@@ -289,7 +279,6 @@ div.contact-form-container {
 @media (min-width: 576px) and (max-width: 768px) {
     .custom-col {
         width: 80%;
-        /* Keep it 50% for small screens */
     }
 
     .transition-text {
@@ -310,7 +299,6 @@ div.contact-form-container {
 @media (min-width: 768px) and (max-width: 992px) {
     .custom-col {
         width: 70%;
-        /* Keep it 50% for small screens */
     }
 
     .transition-text {
@@ -331,7 +319,6 @@ div.contact-form-container {
 @media (min-width: 992px) {
     .custom-col {
         width: 50%;
-        /* Keep it 50% for small screens */
     }
 
     .transition-text {
