@@ -8,7 +8,7 @@
 body {
     text-align: center;
     background-color: #c8dcc2;
-   
+
 }
 
 h1 {
@@ -188,26 +188,35 @@ img.img-fit {
 }
 
 
-/* With image hover*/
+.image-container {
+    display: inline-block;
+    position: relative;
+}
+
 .image-container img {
-    width: 100%; /* Set image size */
-    height: 300px;
-    transition: opacity 0.3s ease-in; /* Smooth transition */
+    width: 200px;
+    /* Set image size */
+    height: auto;
+    transition: opacity 0.3s ease;
+    /* Smooth transition */
 }
 
-.image-container img.hover-image {
-    display: none; /* Initially hide the hover image */
+/* Show default image by default */
+.image-container .hover-image {
+    display: none;
     position: absolute;
+    top: 0;
+    left: 0;
 }
 
-.image-container:hover img.default-image {
-    display: none; /* Hide default image on hover */
+/* On hover, hide default image and show the hover image */
+.image-container:hover .default-image {
+    display: none;
 }
 
-.image-container:hover img.hover-image {
-    display: inline; /* Show hover image */
+.image-container:hover .hover-image {
+    display: block;
 }
-
 
 div.contact-form-container {
     padding: 5px;
@@ -247,8 +256,9 @@ div.contact-form-container {
 }
 
 #hiddenParagraph {
-    display: none; /* Initially hidden */
-  /*  margin-bottom: 20px; */
+    display: none;
+    /* Initially hidden */
+    /*  margin-bottom: 20px; */
 }
 
 
